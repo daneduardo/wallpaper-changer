@@ -1,0 +1,94 @@
+================================================================================
+  WALLPAPER CHANGER - INICIO RÁPIDO
+================================================================================
+
+PASO 1: PREPARACIÓN
+-------------------
+1. Abre Command Prompt o PowerShell
+2. Navega a la carpeta del proyecto:
+   cd C:\Users\daned\OneDrive\Documentos\GitHub\wallpaper-changer
+
+3. Instala dependencias (solo primera vez):
+   pip install -r requirements.txt
+
+PASO 2: CREAR CARPETAS DE IMÁGENES
+-----------------------------------
+Crea estas carpetas en: C:\Users\TuUsuario\Documents\Wallpapers\
+
+   Wallpapers/
+   ├── PORTRAIT/    (imágenes verticales: 1080x1920)
+   └── NORMALES/    (imágenes horizontales: 1920x1080)
+
+PASO 3: AGREGAR IMÁGENES
+------------------------
+Coloca imágenes en formato .jpg, .png o .bmp en las carpetas:
+- PORTRAIT/ para imágenes verticales
+- NORMALES/ para imágenes horizontales
+
+PASO 4: EJECUTAR LA APLICACIÓN
+------------------------------
+OPCIÓN A (Más fácil):
+   Haz doble clic en: start_web.bat
+   
+OPCIÓN B (Terminal):
+   python app.py
+
+PASO 5: CONFIGURAR
+-------------------
+1. El navegador se abrirá automáticamente
+2. Si no, abre: http://127.0.0.1:5000
+3. Configura:
+   - Intervalo de cambio
+   - Ruta de carpetas (si no usas las por defecto)
+4. Haz clic en "Guardar Configuración"
+
+PASO 6: PRUEBA
+--------------
+Haz clic en "Cambiar Ahora" para cambiar el wallpaper inmediatamente
+
+PASO 7: EJECUTAR EN BACKGROUND (Opcional)
+-------------------------------------------
+Si quieres que se ejecute sin interfaz web:
+   python mywallpaperchanger.py
+   
+O haz doble clic en: run_background.vbs
+
+================================================================================
+                              URLS ÚTILES
+================================================================================
+- Interfaz Web:     http://127.0.0.1:5000
+- Documentación:    README.md
+- Despliegue:       DEPLOYMENT.md
+- Solucionar:       README.md (sección 🐛)
+
+================================================================================
+                            ATAJOS TECLADO
+================================================================================
+CTRL+C en terminal:  Detener el servidor
+F5 en navegador:     Recargar página
+F12 en navegador:    Abrir herramientas desarrollador
+
+================================================================================
+                          PROBLEMAS COMUNES
+================================================================================
+❌ "Flask not found"
+   → pip install Flask==2.3.3
+
+❌ "Carpeta templates no encontrada"
+   → mkdir templates
+   → Coloca index.html en la carpeta templates/
+
+❌ "Address already in use"
+   → Cambiar puerto en app.py (puerto=8080)
+   → O cerrar la aplicación anterior
+
+❌ "No se encuentra mywallpaperchanger"
+   → Ejecuta desde la carpeta correcta
+
+❌ El navegador no se abre automáticamente
+   → Abre manualmente: http://127.0.0.1:5000
+
+================================================================================
+================================================================================
+¡Listo! Ya puedes disfrutar de Wallpaper Changer 🖼️
+================================================================================
