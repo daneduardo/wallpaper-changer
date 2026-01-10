@@ -88,6 +88,16 @@ def get_imagenes(tipo):
 def get_current_wallpaper():
     return jsonify(wpc.current_wallpapers)
 
+
+@app.route('/api/monitors', methods=['GET'])
+def get_monitors():
+    try:
+        count = wpc.obtener_cantidad_monitores()
+        return jsonify({'count': int(count)})
+    except Exception as e:
+        logger.error(f"Error obteniendo monitores: {e}")
+        return jsonify({'count': 1}), 500
+
 @app.route('/api/serve-image', methods=['GET'])
 def serve_image():
     path = request.args.get('path')

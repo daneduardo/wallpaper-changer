@@ -238,6 +238,16 @@
             try {
                 const response = await fetch('/api/current-wallpaper');
                 const wallpapers = await response.json();
+
+                // Get actual monitor count from the system and limit preview to that
+                let monitorCount = Infinity;
+                try {
+                    const monRes = await fetch('/api/monitors');
+                    const monData = await monRes.json();
+                    monitorCount = monData.count || Infinity;
+                } catch (e) {
+                    console.warn('No se pudo obtener el conteo de monitores, mostrando todos los wallpapers disponibles');
+                }
                 const container = document.getElementById('monitors-container');
 
                 if (Object.keys(wallpapers).length === 0) {
@@ -251,6 +261,8 @@
 
                 container.innerHTML = '';
                 for (const [monitorId, path] of Object.entries(wallpapers)) {
+                    // Filter out any reported wallpapers beyond the actual monitor count
+                    if (Number(monitorId) > monitorCount) continue;
                     const monitorDiv = document.createElement('div');
                     monitorDiv.className = 'bg-slate-800 rounded-xl p-4 border border-slate-700 shadow-lg transition-transform hover:scale-[1.02] duration-300';
 

@@ -179,6 +179,16 @@ def cambiar_wallpapers(manager):
     except Exception as e:
         logger.error(f"Error cambiando wallpaper: {e}")
 
+
+def obtener_cantidad_monitores():
+    """Devuelve la cantidad de monitores detectados por el sistema (SM_CMONITORS)."""
+    try:
+        # SM_CMONITORS = 80
+        return ctypes.windll.user32.GetSystemMetrics(80)
+    except Exception as e:
+        logger.error(f"Error obteniendo cantidad de monitores: {e}")
+        return 1
+
 # =========================================================
 # WALLPAPER LOOP THREAD
 # =========================================================
